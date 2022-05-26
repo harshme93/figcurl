@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dron</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <script data-main="scripts/app" src="scripts/require.js"></script> -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Ubuntu" rel="stylesheet">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <section class="" id="title">
+
+    <div class="toptions">
+
+      <!-- Nav  Bar   // dropdown-toggle -->
+
+      <nav class="navbar navbar-expand-lg navbar">
+        <a class="navbar-brand" href="">Dron</a>
+        <img src="mylogo.png" alt="" width="52" height="52" style="border-radius:100%">
+        <ul class="navbar-nav ml-auto">
+          <div class="dropdown">
+            <button class="btn btn-secondary " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-bell" aria-hidden="true"></i>
+            </button>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <% if(typeof Notifis != 'undefined'){ %>
+              <% if(typeof Notifis[0] != 'undefined' && typeof NotifiLen != 'undefined'){ %>
+              <% Notifis.forEach(function(Notifi){ %>
+
+              <a class="dropdown-item" href="#"> <%= Notifi.info %> </a>
+
+              <% }) %>
+              <% } else{ %>
+              <a class="dropdown-item">No Notifications</a>
+              <% } %>
+
+              <% } else { %>
+              <a class="dropdown-item">No Notifications</a>
+
+              <% } %>
+
+            </div>
+          </div>
+          <a class="nav-link btn btn-link" href="/home" role="link" id=""><i class="fa fa-home" aria-hidden="true"></i></a>
+          <form action="/profile" method="get">
+          <button class="nav-link btn btn-link" role="link" id=""><i class="fa-solid fa-user"></i></button>
+          
+          </form>
+          <a class="nav-link btn btn-link" href="/logout" role="link" id="">Logout</a>
+
+        </ul>
+      </nav>
+    </div>
+  </section>

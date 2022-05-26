@@ -1,0 +1,165 @@
+<%- include("header") -%>
+<section>
+
+  <form class="" action="/courses" method="post">
+    <div class="container">
+      <div class="wrapper">
+        <input type="text" name="srchInput" id="searchCourse" size="70" value="" class="searchInp" placeholder="search" autocomplete="chrome-off">
+        <button type="submit" name="" class="btn btn-sm searchBtn"><i class="fas fa-search"></i></button>
+        <div class="results CourseSuggestStyle">
+          <ul>
+          </ul>
+          <script>
+            const searchable = ['<%=CourseSuggest%>'];
+            const searchInput = document.getElementById('searchCourse');
+            const searchWrapper = document.querySelector('.wrapper');
+            const resultsWrapper = document.querySelector('.results');
+            searchInput.addEventListener('keyup', () => {
+              let results = [];
+              let input = searchInput.value;
+              if (input.length) {
+                results = searchable[0].toString().split(',').filter((item) => {
+                  return item.toLowerCase().includes(input.toLowerCase());
+                });
+              }
+              renderResults(results);
+            });
+
+            function renderResults(results) {
+              if (!results.length) {
+                return searchWrapper.classList.remove('show');
+              }
+              const content = results
+                .map((item) => {
+                  return `<li>${item}</li>`;
+                })
+                .join('');
+              searchWrapper.classList.add('show');
+              resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>
+
+<section id="CourseRecommend">
+  <% if((typeof courseRecA !='undefined')||(courseRecA !=0)){ %>
+  <div style='border-style:inset;'>
+    <p>
+    <h4 style='color:#f4f9f4'>recommendations here for <%=futProfile %></h4>
+    </p>
+
+    <div class="row opt-total">
+       <div class="col-lg-6 opt-why">
+        <p>
+          <%= courseRecA %>
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftMajor" value="<%= courseRecA %>">
+          <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% if((typeof courseRecB !='undefined')||(courseRecB !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p>
+          <%= courseRecB %>
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftMajor" value="<%= courseRecB %>">
+          <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((typeof courseRecC !='undefined')||(courseRecC !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p>
+          <%= courseRecC %>
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftMajor" value="<%= courseRecC %>">
+          <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((typeof courseRecD !='undefined')||(courseRecD !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p>
+          <%= courseRecD %>
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftMajor" value="<%= courseRecD %>">
+          <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((typeof courseRecE !='undefined')||(courseRecE !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p>
+          <%= courseRecE %>
+        </p>
+      </div>
+      <div class="col-lg-2">
+        <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftMajor" value="<%= courseRecE %>">
+          <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+    <% }else{ %>
+    <div class="col-lg-6 opt-why">
+      Select your future profile to get course recommendations
+    </div>
+
+    <% } %>
+</section>
+
+<section id="certi">
+  <div class="row opt-total">
+    <% certNames.forEach(function(Certification){ %>
+    
+    <div class="col-lg-6 opt-why">
+      <h5> <%= Certification.degNam %> <%= Certification.degMjr %>
+      </h5>
+    </div>
+
+    <div class="col-lg-2">
+      <form class="" action="/courhome" method="post">
+        <input type="hidden" name="ftDeg" value="<%= Certification.degNam %> ">
+        <input type="hidden" name="ftMajor" value="<%= Certification.degMjr %> ">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+      </form>
+    </div>
+
+    <% }) %>
+  </div>
+
+
+</section>
+<section>
+  <form action="/complain" method="post">
+    <input type="text" size="50" name="feedback" placeholder="Provide your feedback here">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</section>
+
+
+<%- include("footer") -%>

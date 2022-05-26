@@ -1,0 +1,109 @@
+<%- include("header") -%>
+<section>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<form class="" action="/future" method="post">
+    <div class="container">
+      <div class="wrapper">
+        <input type="text" name="srchInput" id="searchFuture" size="60" value="" class="searchInp" placeholder="search" autocomplete="chrome-off">
+        <button type="submit" name="" class="btn btn-sm searchBtn"><i class="fas fa-search"></i></button>
+        <div class="results">
+          <ul>
+          </ul>
+          <script>
+            if (typeof '<%=CourseSuggest%>' != 'undefined') {
+              const searchable = ['<%=CourseSuggest%>'];
+              const searchInput = document.getElementById('searchFuture');
+              const searchWrapper = document.querySelector('.wrapper');
+              const resultsWrapper = document.querySelector('.results');
+              searchInput.addEventListener('keyup', () => {
+                let results = [];
+                let input = searchInput.value;
+                if (input.length) {
+                  results = searchable[0].toString().split(',').filter((item) => {
+                    return item.toLowerCase().includes(input.toLowerCase());
+                  });
+                }
+                renderResults(results);
+              });
+
+              function renderResults(results) {
+                if (!results.length) {
+                  return searchWrapper.classList.remove('show');
+                }
+                const content = results
+                  .map((item) => {
+                    return `<li>${item}</li>`;
+                  })
+                  .join('');
+                searchWrapper.classList.add('show');
+                resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+
+</section>
+
+<div class="opt-img">
+</div>
+<section id="future-profiles">
+
+  <div class="row opt-total">
+
+    <% certNames.forEach(function(Certification){ %>
+    <div class="col-lg-3 opt-box">
+      <ul>
+        <div class="opt-head">
+          <h3> <%= Certification.name %> </h3>
+        </div>
+
+      </ul>
+    </div>
+
+    <div class="col-lg-6 opt-why">
+      <p><%= Certification.req1 %></p>
+     
+    </div>
+           
+    <div class="col-lg-2">
+      <form action="/futhome" id="NewFutProfile" method="post">
+<input type="hidden" name="fprofile" value="<%= Certification.name %>">
+<input type="hidden" name="freq1" value="<%= Certification.req1 %>">
+<input type="hidden" name="freq2" value="<%= Certification.req2 %>">
+<input type="hidden" name="freq3" value="<%= Certification.req3 %>">
+        <button type="submit" id="NewFutProfileBut" class="btn optbut-task" name="button">Add</button>
+      </form>
+
+    </div>
+    <% }); %>
+     </div>
+
+<div class="loader-wrapper d-none">
+<span class="loader"><span class="loader-inner"></span></span>
+</div>
+
+
+
+<script>
+$(".optbut-task").click(function(){
+$('.loader-wrapper').removeClass('d-none');
+});
+ 
+</script>
+
+</section>
+
+
+
+
+
+
+
+
+<%- include("footer") -%>

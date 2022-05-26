@@ -1,0 +1,126 @@
+<%- include("header") -%>
+<div class="col-10 col-sm-10 col-md-8 pl-0" id="side-2" style="background-color: aliceblue;">
+  <!--below display:none; -->
+  <div id="chatPanel" class="card ">
+
+    <div class="card-header">
+      <div class="row">
+        <div class="col-1 col-sm-1 col-md-1 col-lg-1 mt-2">
+
+        </div>
+        <!--above line onclick="showChatList()" -->
+        <div class="col-2 col-sm-2 col-md-2 col-lg-1">
+          <img src="profile.jpeg" alt="image is camera shy" class="profile-pic">
+
+        </div>
+        <div class="col-5 col-sm-5 col-lg-7 col-md-5">
+
+          <div class="d-none d-md-block mentor">
+
+          </div>
+
+          <div class="d-none d-md-block mentor"> <%=mentorReq.fName %> <%= mentorName.MentName %> </div>
+        </div>
+        <div class="col-4 col-sm-4 col-lg-3 col-md-4 icon">
+          <i class="fas fa-search" style="cursor:pointer;"></i>
+          <i class="fas fa-paperclip ml-4" style="cursor:pointer;"></i>
+          <i class="fas fa-ellipsis-v ml-4" style="cursor:pointer;"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body " id="messages" style="height: 70vh;">
+      <% if( typeof ChatMessage != 'undefined'){ %>
+      <!-- above is remaining -->
+
+      <div class="row ">
+        <div class="col-2 col-sm-1 col-md-1">
+          <img src="profile.jpeg" class="chat-pic" alt="camera shy">
+        </div>
+        <% ChatMessage.forEach(element => { if(element.writer != mentorReq._id){ %>
+        <div class="col-6 col-sm-7 col-md-7">
+          <p class="receive"><%= element.message %>
+            <span class="time float-right">1:28 PM</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row justify-content-end">
+        <% } else{ %>
+        <div class="col-6 col-sm-7 col-md-7 ">
+          <p class="sent float-right"> <%= element.message %>
+            <span class="time float-right">1:28 PM</span>
+          </p>
+        </div>
+        <!-- <div class="col-2 col-sm-1 col-md-1">
+            <img src="profile.jpeg" class="chat-pic" alt="camera shy">
+            </div> -->
+        <% }}) %>
+      </div>
+
+    </div>
+
+
+    <div class="float-right" id="messages">
+      <div class="row">
+        <div class="col-2 col-sm-1 col-md-1">
+          <img src="profile.jpeg" class="chat-pic" alt="camera shy">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-2 col-md-1 ">
+          <i class="fas fa-grin fa-2x"></i>
+        </div>
+        <div class="col-8 col-md-10">
+
+          <form action="/MessageSent" method="post">
+            <input type="hidden" name="currentUserId" value="<%=mentorReq._id %>">
+            <input type="hidden" name="mentorId" value="<%= mentorName.MentId %>">
+            <input type="text" name="mess" class="form-control form-rounded" placeholder="type here" required>
+
+          </form>
+
+        </div>
+        <div class="col-2 col-md-1">
+          <i class="fas fa-microphone" style="font-size:30px"></i>
+        </div>
+
+      </div>
+
+    </div>
+
+    <% }else{ %>
+    <div class="card-body " id="messages" style="height: 56vh;">
+        <div class="row"></div></div>
+
+    <div class="card-footer">
+      <div class="row">
+        <div class="col-2 col-md-1 ">
+          <i class="fas fa-grin fa-2x"></i>
+        </div>
+        <div class="col-8 col-md-10">
+          <form action="/MessageSent" method="post">
+            <input type="hidden" name="currentUserId" value="<%=mentorReq._id %>">
+            <input type="hidden" name="mentorId" value="<%= mentorName.MentId %>">
+            <input type="text" name="mess" class="form-control form-rounded" placeholder="type here" required>
+          </form>
+        </div>
+        <div class="col-2 col-md-1">
+          <i class="fas fa-microphone" style="font-size:30px"></i>
+        </div>
+      </div>
+    </div>
+    <% }; %>
+
+  </div>
+</div>
+
+
+
+
+
+<%- include("footer") -%>

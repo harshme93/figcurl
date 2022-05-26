@@ -1,0 +1,150 @@
+<%- include("header") -%>
+
+<section>
+  <form class="" action="/certifications" method="post">
+    <div class="container">
+      <div class="wrapper">
+        <input type="text" name="srchInput" id="searchCertification" size="70" value="" class="searchInp" placeholder="search" autocomplete="chrome-off">
+        <button type="submit" name="" class="btn btn-sm searchBtn"><i class="fas fa-search"></i></button>
+        <div class="results CourseSuggestStyle">
+          <ul>
+          </ul>
+          <script>
+            if (typeof '<%=CourseSuggest%>' != 'undefined') {
+              const searchable = ['<%=CourseSuggest%>'];
+              const searchInput = document.getElementById('searchCertification');
+              const searchWrapper = document.querySelector('.wrapper');
+              const resultsWrapper = document.querySelector('.results');
+              searchInput.addEventListener('keyup', () => {
+                let results = [];
+                let input = searchInput.value;
+                if (input.length) {
+                  results = searchable[0].toString().split(',').filter((item) => {
+                    return item.toLowerCase().includes(input.toLowerCase());
+                  });
+                }
+                renderResults(results);
+              });
+
+              function renderResults(results) {
+                if (!results.length) {
+                  return searchWrapper.classList.remove('show');
+                }
+                const content = results
+                  .map((item) => {
+                    return `<li>${item}</li>`;
+                  })
+                  .join('');
+                searchWrapper.classList.add('show');
+                resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+              }
+            }
+          </script>
+        </div>
+      </div>
+    </div>
+  </form>
+
+</section>
+
+<section id="CourseRecommend">
+  <% if((typeof courseCertA != 'undefined')||(courseCertA !=0)){ %>
+  <div style='border-style:inset;'>
+    <p>
+    <h4 style='color:#f4f9f4'>recommendations here for <%=futProfile %></h4>
+    </p>
+    
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p> <%=courseCertA%> </p>
+      </div>
+      <div class="col-lg-2">
+       <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%=courseCertA%>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+    <% if((courseCertB != 'undefined')||(courseCertB !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p> <%=courseCertB%> </p>
+      </div>
+      <div class="col-lg-2">
+        <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%=courseCertB%>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((courseCertC != 'undefined')||(courseCertC !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p> <%=courseCertC%> </p>
+      </div>
+      <div class="col-lg-2">
+        <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%=courseCertC%>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((courseCertD != 'undefined')||(courseCertD !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p> <%=courseCertD%> </p>
+      </div>
+      <div class="col-lg-2">
+        <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%=courseCertD%>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+<% if((courseCertE != 'undefined')||(courseCertE !=0)){ %>
+    <div class="row opt-total">
+      <div class="col-lg-6 opt-why">
+        <p> <%=courseCertE%> </p>
+      </div>
+      <div class="col-lg-2">
+        <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%=courseCertE%>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+        </form>
+      </div>
+    </div>
+<% } %>
+    <% }else{ %>
+    <div class="col-lg-6 opt-why">
+      Select your future profile to get certificate recommendations
+    </div>
+    <% } %>
+</section>
+<section id="certi">
+  <div class="row opt-total">
+    <% certNames.forEach(function(Certification){ %>
+    <div class="col-lg-6 opt-why">
+      <p>
+      <h3><%= Certification.certNam %> <%= Certification.certDes %> </h3>
+      </p>
+    </div>
+    <div class="col-lg-2">
+      <form action="/certhome" method="post">
+        <input type="hidden" name="fCerti" value="<%= Certification.certNam %>">
+        <button type="submit" class="btn optbut-task" name="button">Add</button>
+      </form>
+    </div>
+    <% }); %>
+  </div>
+</section>
+<section>
+  <form action="/complain" method="post">
+    <input type="text" size="50" name="feedback" placeholder="Provide your feedback here">
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</section>
+
+<%- include("footer") -%>

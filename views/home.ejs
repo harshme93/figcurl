@@ -1,0 +1,417 @@
+<%- include("header") -%>
+
+
+  <section>
+    <div class=" row">
+      <div class="col-lg-12 col-md-12 user-details">
+        <h5>
+          <%=fName%>
+        </h5>
+      </div>
+    </div>
+  </section>
+
+  <section id="user-timeline">
+    <div class="user-area">
+      <div class="row">
+
+        <div class="col-lg-6 col-md-6">
+          <div class="present-you">
+            <h2>Present You</h2>
+            <ul class="timeline">
+
+              <li class="homeLi">
+                <h5>
+                  <%= sName %>
+                </h5>
+                <h5>
+                  <%=sCourse %>
+                </h5>
+              </li>
+              <li class="homeLi">
+                <h5>
+                  <%= bDegree %>
+                </h5>
+                <h5>
+                  <%= bMajor %>
+                </h5>
+              </li>
+              <li class="homeLi">
+                <h5>
+                  <%= mDegree %>
+                </h5>
+                <h5>
+                  <%= mMajor %>
+                </h5>
+              </li>
+
+              <li class="homeLi">
+                <h5>
+                  <%= certification %>
+                </h5>
+                <h5> </h5>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-6 col-md-6 future-you">
+          <h3>Future You</h3>
+          <p>
+            <img class="user-pic" src="profile.jpeg" width="92" height="92" alt="user-pic">
+          </p>
+          <form class="" action="/future" method="post">
+            <button type="submit" class="btn btn-lg optbut" id="futureyou"
+              style="background-color: #f8ede3; color:#a20a0a" name="button">Profile</button>
+          </form>
+          <% if(futProfile){ %>  
+          
+          <%= futProfile %> <br>
+            <%= fReq1 %> <br>
+             
+                <% }else{ %> 
+                <div>Select your future goal here</div> 
+                 <% } %>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- show that you are mentoring so and so people -->
+  <section class="mt-4">
+    <div class="card">
+      My Mentors 
+      <% if(typeof Mentlen !='undefined' ){ %>
+      <%= Mentlen %>/3
+      <% } %>
+      <div class="row card-header">
+        <% if(typeof Mentors[0] !='undefined' ){ %>
+          <div class="col ">
+               <%= Mentors[0].MentName %>
+                <div class="col">
+                  <div class="">
+                     <form action="/MentorChat" method="post">
+                      <input type="hidden" name="MentId" value="<%=Mentors[0].MentId %> ">
+                      <button><i class='far fa-comments' style='font-size:24px'></i></button>
+                    </form>
+                  </div>
+                  <div class="">
+                    <form action="/MentorRemove" method="post">
+                      <input type="hidden" name="MentId" value="<%=Mentors[0].MentId %>">
+                      <button><i class="fa-solid fa-trash"></i><i class='fa fa-trash-o'></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                <% } else{ %>
+                  <div class="col ">
+                    <form class="" action="/mentors" method="post">
+                      <button type="submit" class="btn btn-lg optbut" name="button">Mentor</button>
+                    </form>
+                  </div>
+                  <% } %>
+
+                  <div class="col ">
+                    <% if(typeof Mentors[1] !='undefined' ){ %>
+                      <%=Mentors[1].MentName %>
+                        <div class="col">
+                          <div class="">
+                            <form action="/MentorChat" method="post">
+                              <input type="hidden" name="MentId" value=" <%=Mentors[1].MentId %> ">
+                              <button><i class='far fa-comments' style='font-size:24px'></i></button>
+                            </form>
+                          </div>
+                          <div class="">
+                            <form action="/MentorRemove" method="post">
+                              <input type="hidden" name="MentId" value=" <%=Mentors[1].MentId %> ">
+                              <button><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                          </div>
+                        </div>
+                        <% } else{ %>
+                          <div class="col ">
+                            <form class="" action="/mentors" method="post">
+                              <button type="submit" class="btn btn-lg optbut" name="button">Mentor</button>
+                            </form>
+                          </div>
+                          <% } %>
+                  </div>
+                
+                  <div class="col ">
+                    <% if(typeof Mentors[2] !='undefined' ){ %>
+                      <%=Mentors[2].MentName %>
+                        <div class="col">
+                          <div class="">
+                            <form action="/MentorChat" method="post">
+                              <input type="hidden" name="MentId" value=" <%=Mentors[2].MentId %> ">
+                              <button><i class='far fa-comments' style='font-size:24px'></i></button>
+                            </form>
+                          </div>
+                          <div class="">
+                            <form action="/MentorRemove" method="post">
+                              <input type="hidden" name="MentId" value=" <%=Mentors[2].MentId %> ">
+                              <button><i class="fa-solid fa-trash"></i></button>
+                            </form>
+                          </div>
+                        </div>
+                        <% } else{ %>
+                          <div class="col ">
+                            <form class="" action="/mentors" method="post">
+                              <button type="submit" class="btn btn-lg optbut" name="button">Mentor</button>
+                            </form>
+                          </div>
+                          <% } %>
+                  </div>         
+          </div>
+    </div>
+  </section>
+<!-- Below are the mentee requests-->
+  <section class="mt-4">
+    <div class="card">
+      
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Mentee
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+           <% if(typeof MenteeReqs !='undefined'){ %>
+            
+            <div class="col"> 
+            <% if(typeof MenteeReqs[0] != 'undefined' ){ %>
+              <a class="dropdown-item" href="#"> 
+                
+                <%= MenteeReqs[0].MentName %></a>
+              <div class="col">
+                <div class="">
+                  <!-- chat button -->
+                  <form action="/menteeAdd" method="post">
+                    <input type="hidden" name="MentId" value="<%=MenteeReqs[0].MentId %> ">
+                    <button>Add</button>
+                  </form>
+                </div>
+                <div class="">
+                  <!-- remove button -->
+                  <form action="/menteeRemove" method="post">
+                    <input type="hidden" name="MentId" value="<%=MenteeReqs[0].MentId %>">
+                    <button><i class="fa-solid fa-trash"></i></button>
+                  </form>
+                </div>
+              </div>
+
+            <% } else { %> <a class="dropdown-item">No Requests</a>  <% } %>
+          </div>
+
+          <div class="col">
+            <% if(typeof MenteeReqs[1] != 'undefined' ){ %>
+              <a class="dropdown-item" href="#"> 
+                <%= MenteeReqs[1].MentName %></a>
+              <div class="col">
+                <div class="">
+                  <!-- chat button -->
+                  <form action="/menteeAdd" method="post">
+                    <input type="hidden" name="MentId" value="<%=MenteeReqs[0].MentId %> ">
+                    <button>Add</button>
+                  </form>
+                </div>
+                <div class="">
+                  <!-- remove button -->
+                  <form action="/menteeRemove" method="post">
+                    <input type="hidden" name="MentId" value="<%=MenteeReqs[0].MentId %>">
+                    <button><i class="fa-solid fa-trash"></i></button>
+                  </form>
+                </div>
+              </div>
+
+            <% } %>  
+            
+           
+           <% } else{ %>  <% } %> 
+          </div>
+
+
+        </div>
+      </div>
+      <% if(typeof Mentilen !='undefined' ){ %>
+        <%= Mentilen %>/3
+        <% } %>
+      
+      
+      <div class="row card-header">
+        <% if(typeof Mentees !='undefined' ){ %>
+          <% Mentees.slice(0,3).forEach(function(Mentee){ %>
+          <div class="col ">
+              <%= Mentee.MentName %>
+                <div class="col">
+                  <div class="">
+                    <!-- chat button -->
+                    <form action="/MenteeChat" method="post">
+                      <input type="hidden" name="MentId" value="<%=Mentee.MentId %> ">
+                      <button><i class='far fa-comments' style='font-size:24px'></i></button>
+                    </form>
+                  </div>
+                  <div class="">
+                    <!-- remove button -->
+                    <form action="/MenteeRemove" method="post">
+                      <input type="hidden" name="MentId" value="<%=Mentee.MentId %>">
+                      <button><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+                <% }); %> 
+          <% } %>
+          </div>
+    </div>
+  </section>
+
+<section>
+<% if(typeof PendFeeds[0] !='undefined'){ %>
+
+<% PendFeeds.slice(0,3).forEach(function(PendFeed){ %>
+  <br>
+  <div class="card"> 
+  <div class="row card-header">
+         <div class="col ">
+          <%= PendFeed.MentName %>
+            <div class="col">
+              <div class="">
+                <!-- chat button -->
+                <form action="/Secondaryfeedback" method="post">
+                  <input type="hidden" name="MenteeId" value=<%=PendFeed.MentId %>>
+                  <input type="hidden" name="MentId" value=<%=UserId %>>
+                  <button class="btn btn-danger">Feedback</button>
+                </form>
+              </div>
+              </div>
+        </div>
+          
+  </div>
+</div>
+
+<% }); %>
+<% }; %>
+
+</section>
+
+
+
+  <section id="4cs">
+    <div class="row">
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card cardcol">
+          <!-- <div class="card-header">
+            <h3>Competitions</h3>
+          </div> -->
+          <div class="card-body">
+
+            <form action="/competitions" method="post">
+              <button class="btn btn-lg optbut" type="submit" id="compet">Competitions</button>
+
+            </form>
+            <%= futComp %>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card cardcol">
+          <!-- <div class="card-header">
+            <h3>Competitive Exams</h3>
+          </div> -->
+          <div class="card-body">
+            <form action="/compexams" method="post">
+
+              <button id="compex" type="submit" class="btn btn-lg optbut">Exams</button>
+
+            </form>
+            <%=compName%>
+              <%=compScore%> <br>
+                <%= futExam %>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card cardcol">
+
+          <div class="card-body">
+            <h5> </h5>
+            <form action="/certifications" method="post">
+              <button class="btn btn-lg  optbut" type="submit" id="certifi">Certifications</button>
+            </form>
+            <%= futCerti %>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card cardcol">
+
+          <div class="card-body">
+            <form class="" action="/courses" method="post">
+              <button class="btn btn-lg  optbut" type="submit" id="course">Courses</button>
+            </form>
+            <%= futDeg %> <br>
+              <%= futMajor %>
+          </div>
+        </div>
+      </div>
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card ">
+          <!-- <div class="card-header">
+            <h3>New Trends</h3>
+          </div> -->
+          <div class="card-body">
+            <form class="" action="/trends" method="post">
+              <button class="btn btn-lg  optbut" type="submit" id="trends">New Trends</button>
+            </form>
+            <%= futTrend %>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="pricing-column col-lg-4 col-md-6">
+        <div class="card cardcol">
+          <!-- <div class="card-header">
+            <h3>Fellowships</h3>
+          </div> -->
+          <div class="card-body">
+            <form class="" action="/scholarship" method="post">
+              <button class="btn btn-lg  optbut" id="scholar" type="submit">Fellowships</button>
+            </form>
+            <%= futFellow %>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section>
+    <div id="SelectedMentors">
+
+    </div>
+
+  </section>
+
+
+
+  <div class="">
+    <form class="" action="/post" method="post">
+      <button type="submit" class="btn btn-lg optbut" name="button">Ask a question</button>
+    </form>
+  </div>
+  <p>
+
+  </p>
+  <div class="">
+    <form class="" action="/mentors" method="post">
+      <button type="submit" class="btn btn-lg optbut" name="button">Mentors</button>
+    </form>
+  </div>
+
+  <%- include("footer") -%>

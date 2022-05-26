@@ -1,0 +1,221 @@
+<%- include("header") -%>
+
+  <section>
+    <span class="top"></span>
+
+    <div class="container-fluid bg-white chatbox shadow-lg rounded">
+      <div class="row h-100">
+        <div class="col-2 col-sm-2 col-md-4 pr-0" id="side-1">
+
+          <div class="card opt-box">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-1 col-1 col-sm-1 d-md-none">
+                  <i class="fas fa-arrow-left" style="border-radius:5px;cursor:pointer;"
+                    onclick="hideChatList()"></i>
+                </div>
+                <div class="col-md-9 col-9 col-sm-9">
+                  <img src="profile.jpeg" alt="image is camera shy" class="profile-pic float-left">
+                </div>
+                <div class="col-md-2 col-2 col-sm-2">
+                  <div class="dropleft">
+                    <span class="dropdown-toggle" data-toggle="dropdown">
+                      <i class="fas fa-ellipsis-v icon" style="border-radius:5px;cursor:pointer;float:right;"
+                    onclick="hideChatList()"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                      <a href="#" class="dropdown-item">New Chat</a>
+                      <a href="#" class="dropdown-item">New Chat</a>
+                      <a href="#" class="dropdown-item">New Chat</a>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              
+            </div>
+
+            <ul class="list-group "  style="height:80vh;">
+              <li class="list-group-item" style="background-color: #f8f8f8;">
+                <input type="text" name="" class="form-control form-rounded" value="" placeholder="Search profile">
+              </li>
+              <div id="mentorNames">
+                <% foundMentors.forEach(function(User){ %>  
+                <% if(User._id != currentUser){ %>
+                    
+<!-- current user is the one who is logged in and the user is the one who is selected : -->
+               
+                
+ <li class="list-group-item list-group-item-action"  style="cursor: pointer;" > 
+  <!-- onclick="StartChat(3)" goes in the li element-->
+                  <div class="row" >
+
+                    <div class="col-md-2">
+                      <img src="profile.jpeg" alt="image is camera shy" class="mentor-pic">
+                    </div>
+                    <div class="col-md-10">
+                      <div class="name d-none d-md-block mentor" id=MentorNameDetails>
+                        <%= User.fName %>
+                          <%= User.lName %>
+                      </div>
+                      <div class="under-name d-none d-md-block mentor" id="MentorBachDetails">
+                        <div class="">
+                          <%= User.bDegree %>
+                            <%= User.bMajor %>
+                        </div>
+                        <div class="" id="MentorMasterDetails">
+                          <%= User.mDegree %>
+                            <%= User.mMajor %>
+                        </div>
+                        <div class="" id="MentorFutProDetails">
+                          <%= User.futProfile %>
+                          <%=User.Ment.length %>/3
+                          
+                          <div class="mt-2">
+                          <!-- <form action="/mentorRequest" method="post">  -->
+                            <form action="/mentee" method="post">
+                            <input type="hidden" name="mentorRequested"  value= <%=User._id%>>
+                            <input type="hidden" name="userRequested" value= <%=currentUser%> > 
+                            <button class="btn btn-primary" id="<%=User._id%>" >Send Invite</button>
+                          </form>
+                           
+                          
+                          </div> 
+                        </div>
+                       <% } %>
+                       <% }); %>
+                       </div>
+                     </div>
+                   </div>
+                   </li>
+              </div>
+            </ul>
+           
+          </div>
+        
+        </div>
+
+        <div class="col-10 col-sm-10 col-md-8 pl-0" id="side-2">
+          <div>
+
+<% if(typeof SortedUsers[5]!='undefined'){ %>
+<div class="row"> <div class="col"> All-Stars </div>
+<div class="col"> 
+<div class="text-left"> 
+<% SortedUsers.slice(0,5).forEach(function(SortedUser){ %>
+<br> 
+<div class="row"> 
+<div class="col"> 
+<div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+<div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+<div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+<div class="col">
+<div> Score:<%= SortedUser.rating %> </div> 
+<div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+<div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+</div></div>
+<% }); %>
+</div> </div> </div>
+<% } else{ %>
+  <div class="row"> <div class="col"> All-Stars </div>
+  <div class="col"> 
+  <div class="text-left"> 
+  <% SortedUsers.forEach(function(SortedUser){ %>
+  <br> 
+  <div class="row"> 
+  <div class="col"> 
+  <div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+  <div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+  <div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+  <div class="col">
+  <div> Score:<%= SortedUser.rating %> </div> 
+  <div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+  <div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+  </div></div>
+  <% }); %>  </div> </div> </div> <% } %>
+
+<% if(typeof SortedUsers[10] !='undefined'){ %>
+<div class="row"> <div class="col"> Super Stars </div>
+<div class="col"> 
+<div class="text-left"> 
+<% SortedUsers.slice(5,10).forEach(function(SortedUser){ %>
+<br> 
+<div class="row"> <div class="col"> 
+<div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+<div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+<div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+<div class="col">
+<div> Score:<%= SortedUser.rating %> </div> 
+<div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+<div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+</div></div>  <% }); %> </div> </div> </div> <% } %>
+
+<% if(typeof SortedUsers[15] !='undefined'){ %>
+  <div class="row"> <div class="col"> Hall of Famers </div>
+  <div class="col"> 
+  <div class="text-left"> 
+  <% SortedUsers.slice(10,15).forEach(function(SortedUser){ %>
+  <br> 
+  <div class="row"> <div class="col"> 
+  <div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+  <div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+  <div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+  <div class="col">
+  <div> Score:<%= SortedUser.rating %> </div> 
+  <div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+  <div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+  </div></div>  <% }); %> </div> </div> </div> <% } %>
+  
+  <% if(typeof SortedUsers[20] !='undefined'){ %>
+    <div class="row"> <div class="col"> Legends </div>
+    <div class="col"> 
+    <div class="text-left"> 
+    <% SortedUsers.slice(15,20).forEach(function(SortedUser){ %>
+    <br> 
+    <div class="row"> <div class="col"> 
+    <div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+    <div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+    <div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+    <div class="col">
+    <div> Score:<%= SortedUser.rating %> </div> 
+    <div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+    <div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+    </div></div>  <% }); %> </div> </div> </div> <% } %> 
+
+    <% if(typeof SortedUsers[25] !='undefined'){ %>
+      <div class="row"> <div class="col"> Icons </div>
+      <div class="col"> 
+      <div class="text-left"> 
+      <% SortedUsers.slice(20,25).forEach(function(SortedUser){ %>
+      <br> 
+      <div class="row"> <div class="col"> 
+      <div><%= SortedUser.fName %>  <%= SortedUser.lName %></div>
+      <div><%= SortedUser.bDegree %> <%= SortedUser.bMajor %> </div>
+      <div> <%= SortedUser.mDegree %> <%= SortedUser.mMajor %> </div> </div>
+      <div class="col">
+      <div> Score:<%= SortedUser.rating %> </div> 
+      <div>Answer-Count:<%= SortedUser.ansCount %> </div> 
+      <div>Mentee: <%=SortedUser.Menti.length%>  $Mentee: <%=SortedUser.Menti.length %> $Ment: <%=SortedUser.Ment.length %> Total: <%=SortedUser.rateCount%> </div>
+      </div></div>  <% }); %> </div> </div> </div> <% } %>
+
+
+
+
+        </div>    
+          
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <section>
+    <form action="/complain" method="post">
+      <!-- <textarea name="" id="" cols="30" rows="10"></textarea> -->
+    <input type="text" size="50" height="200px" name="feedback" placeholder="Provide your feedback here">
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </section>
+ 
+
+  <%- include("footer") -%>

@@ -1,0 +1,56 @@
+<%- include("header") -%>
+<section >
+<form class="" action="/trends" method="post">
+  <input type="text" name="srchInput" size="70" class="searchInp" value="" placeholder="search">
+<button type="submit" name="" class="btn btn-sm searchBtn"><i class="fas fa-search"></i></button>
+</form>
+
+</section>
+
+  <div class="opt-img">
+</div>
+  <section id="future-profiles">
+
+
+    <div class="row opt-total">
+
+<% certNames.forEach(function(Certification){ %>
+          <div class="col-lg-3 opt-box" style="background-color:red; border:1px solid;">
+<ul>
+            <div class="opt-head">
+              <h3>  <%= Certification.name %>   </h3>
+            </div>
+
+</ul>
+          </div>
+
+          <div class="col-lg-6 opt-why" style="background-color:yellow;  border:1px solid;">
+            <p><%= Certification.cover %></p>
+          </div>
+          <div class="col-lg-2">
+            <form action="/trendhome" method="post">
+          <input type="hidden" name="fTrend" value="<%= Certification.name %>" >
+
+              <button type="submit" class="btn optbut-task" name="button">Add</button>
+            </form>
+          </div>
+
+          <% }) %>
+        </div>
+
+
+      </section>
+      <section>
+        <form action="/complain" method="post">
+        <input type="text" size="50" name="feedback" placeholder="Provide your feedback here">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </section>
+
+
+
+
+
+
+
+<%- include("footer") -%>

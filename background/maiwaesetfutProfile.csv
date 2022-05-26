@@ -1,0 +1,38 @@
+Index,Profiles,skills
+0,Aerospace Engineer,"Project Management, Engineering Support, MatLab, C#, C++, VB, Java, Solidworks, Structural Analysis, Electrical Systems, Control Systems, Design Reviews, Computational Fluid Dynamics, NASTRAN, Logistics, Stress Analysis "
+1,Agricultural Engineer,"Water Conservation, Data Collection, Natural Resources, Irrigation Systems, Water Quality, Autocad, GIS, Plant Diseases, Nursery, Pest Control, Agricultural Machinery"
+2,Automotive Engineer,"R, CAD, ISO, Matlab, DFMEA, OEM, Product Development, Solidworks, Electrical, Electronics, & Mechanical systems"
+3,Biomedical Engineer,"Medical Devices, FDA, Solidworks, Data Analysis, Ultrasound, Project Management, C++, Matlab, Product Development, Clinical Equipment, Clinical Trials"
+4,Chemical Engineer,"Chemical Process, Data Analysis, Project Management, Compliance, Process Engineering, Product Quality, Cost Estimate, Design, Flow Diagrams, Instrumentation Diagrams, Process Design, Process Equipment, Six Sigma, Technical Reports, Water Quality, Control Systems, Autocad"
+5,Civil Engineer,"Civil 3D, Engineering Design, Project ManagementCost Estimates, Water Quality, Plans, Site Development, Compliance, Drainage"
+6,Computer Engineer,"Python, Software Development, Linux, C++, Java, Matlab, Software Systems"
+7,Data Engineer,"Python, Big Data, ETL, Cloud, Scala, Java, Kafka, Data Analysis, Analytics, Redshift, Data Pipeline, EMR, Data Quality, Processing"
+8,Electrical Engineer,"Electrical Systems, Autocad, Hardware, Layout, C++, Control Systems, Design, Analog, PLC"
+9,Environmental Engineer,"Environmental Compliance, Regulatory, Air & Water Quality, Project Management, Osha, Autocad, HAZWOPER, Cost Estimates, Techcical Writing, Solid Waste"
+10,Marine Engineer,"Autocad, Electrical Systems, HVAC, Diesel Engines, Fuel Systems, Routine Maintenance, Equipment & Machinery, ABS, ISO"
+11,Mechanical Engineer,"Engineering Design, CAD, Solidworks, Electrical Systems, HVAC, Engineering Drawings, CREO, Project Management, R, System Design, Product Design"
+12,Petroleum Engineer,"Reservoir Characterization, Economic Analysis & Evaluation, Technical Support, Cost Estimates, Petrel, ARIES, Operations, Curve Analysis, Materials Manufacturing"
+13,Software Engineer,"Python, Java, Software Development, Web services, GIT, Databse, Linux, C++, API, SCRUM, Jenkins, Code Reviews, Jira, PHP, SQL, UNIX, Ruby, Perl"
+14,Architectural Engineer,"Python, C++, Hardware, Revit, Architecture, Project Management, Construction Documents, SAN, SOC, CPU, Java, Linux, Design Development, Engineering Design, AWS, CAD, RTL, IP, Construction Projects, SQL, OS, Unix, Servers, Large Scale, HVAC, Perl, Data Centers, Active Directory, Project Requirements, Vmware, DNS"
+15,Audio Engineer,"Video Production, Audio Systems, Audio & Visual Equipment, Sound Design, Live Sound, Sound Effects & Quality, Digital Audio, Wireless Microphones, Signal Flow"
+16,Industrial Engineer,"Continuous Improvement, Six Sigma, Project Management, Data Analysis, Logistics, Cost Reduction, Value Stream, CAD, Capacity Analysis, Material Flow, Production Processes, SQL, Assembly Line, Ergonomics, Inventory ControlCost Analysis"
+17,Materials Science Engineer,"Failure Analysis, R, CAD, New Materials, Material Properties, Quality Standards, Project Management, Continuous Improvement, Process Specifications"
+18,Mining and Geological Engineer,"Technical Reports, Data Collection, Engineering Design, Construction Projects, Slope Stability, Data Interpretation, Technical Expertise, GIS, Cost Estimates, Data Analysis"
+19,nanoengineer,
+20,Nuclear Engineer,"Project Management, Safety Analysis, Regulatory Compliance, Request for Approval, Nuclear Safety, Program Improvement, Technical Reports, Safety Standards, Electrical Systems"
+21,structural engineer,"Structural Analysis, Engineering Design, Civil Engineering, Autocad, ASCE, Project Management, RISA, CAD, Cost Estimates, Petrochemical, STAAD"
+22,Telecommunications Engineer,"Cloud Computing, VoIP, Network Security, Programming, Computer Networks, TCP/IP Protocols, Network Devices, Project Management, Design"
+23,Thermal Engineer,
+24,Transport Engineer,"Procedures, Autocad, Cost Estimates, Roadway Design, Project Management, CAD, Highway Design, Geopak, Traffic Engineering, Planning, Design, Technical, Drainage Systems"
+25,Vehicle Engineer,
+26,Public Health Worker,
+27,Health / Medical Journalism and Medical Writer,
+28,Clinical Forensic Medical Examiner,
+29,Medico-Legal Advisor,
+30,Medical / Pharmaceutical Researcher,
+31,Transplant Coordinator,
+32,Radiology / Diagnostic Imaging,
+33,Sports Medicine,
+34,Investment Banking,"Financial Models, Capital Markets, Private Equity, Discounted Cash Flow, Financial Statements, Capital Raising, Due Dilligence, LBO"
+35,R&D Applications Engineer,
+36,Voice Engineer,"VoIP, Voice Gateways, Border Gateway Protocol, Servers, Visio, VPN, Windows Server, Project Management, Linux, LAN"

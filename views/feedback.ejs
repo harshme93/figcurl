@@ -1,0 +1,35 @@
+<%- include("header") -%>
+<section>
+
+<div>
+    <form action="/feedback" method="post">
+    <div class="rating">
+		<input type="radio" name="test" id="one" value=1 checked />
+		<label for="one"><i class="fa fa-star"></i></label>
+		<input type="radio" name="test" id="two" value=2 />
+		<label for="two"><i class="fa fa-star"></i></label>
+		<input type="radio" name="test" id="three" value=3 />
+		<label for="three"><i class="fa fa-star"></i></label>
+		<input type="radio" name="test" id="four" value=4 />
+		<label for="four"><i class="fa fa-star"></i></label>
+		<input type="radio" name="test" id="five" value=5 />
+		<label for="five"><i class="fa fa-star"></i></label>
+    </div>
+<hr/>
+<div>
+    <div>some words for the feedback</div>
+    <input type="text" sixe="80" placeholder="understanding knowledgeable willing to work">
+</div>
+<div>
+    <input type="hidden" name="MentId" value = <%= MentId %>>
+    <input type="hidden" name="MenteeId" value = <%= MenteeId %> >
+    <button class="btn btn-block" name="feedBtn" type="submit">Submit Feedback</button>
+</div>
+</form>
+</div>
+
+
+
+</section>
+
+<%- include("footer") -%>

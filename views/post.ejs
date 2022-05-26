@@ -1,0 +1,81 @@
+<%- include("header") -%>
+
+
+
+<section id="">
+  <div class="" style="margin-top:10px">
+    <form class="" action="/posts" method="post">
+      <div class="container">
+        <div class="wrapper">
+          <input type="text" name="quesbtn" class="postBox" id="searchQuestions" size="80" value="" placeholder="Where can I find free study material fro CFA?" required class="searchInp"
+           autocomplete="chrome-off">
+<input type="hidden" name="WriterId" value="<%=WriterId %> ">
+          <button type="submit" name="" class="btn btn-sm searchBtn">Submit</button>
+          <div class="results">
+            <ul>
+            </ul>
+            <script>
+            if(typeof '<%=CourseSuggest%>' != 'undefined'){
+const searchable = ['<%=CourseSuggest%>'];
+const searchInput = document.getElementById('searchQuestions');
+const searchWrapper = document.querySelector('.wrapper');
+const resultsWrapper = document.querySelector('.results');
+searchInput.addEventListener('keyup', () => {
+  let results = [];
+  let input = searchInput.value;
+  if (input.length) {
+    results = searchable[0].toString().split(',').filter((item) => {
+      return item.toLowerCase().includes(input.toLowerCase());
+    });}renderResults(results);});
+function renderResults(results) {
+  if (!results.length) {
+    return searchWrapper.classList.remove('show');
+  }
+  const content = results
+    .map((item) => {
+      return `<li>${item}</li>`;
+    })
+    .join('');
+  searchWrapper.classList.add('show');
+  resultsWrapper.innerHTML = `<ul>${content}</ul>`;
+}
+            }
+
+            </script>
+          </div>
+        </div>
+      </div>
+    </form>
+
+
+
+
+
+  </div>
+</section>
+
+<section id="post">
+  <% certNames.forEach(function(Question){ %>
+
+   <h3 class="postQtn"> <%= Question.ques %> </h3>
+  <form class="" action="/answer" method="post">
+<% for (var i = 0; i < Question.ans.length; i++) { %>
+
+<h5 class="postAns">   <%= Question.ans[i].answer %> </h5>
+<% } %>
+      <input type="hidden" name="ansWriterId" value = "<%=WriterId %> " >      
+      <input type="text" name="ansbtn" size="80" class="postBox" value="" placeholder="Enter your comment" required>
+      <button type="submit" name="questionId" class="btn btn-sm postAnsBox" value="<%=Question._id %>" name="button">Reply</button>
+  </form>
+
+<% }) %>
+</section>
+
+<section>
+  <form action="/complain" method="post">
+  <input type="text" size="50" name="feedback" placeholder="Provide your feedback here">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  </section>
+  
+<%- include("footer") -%>
