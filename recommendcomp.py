@@ -6,7 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 # df = pd.read_csv("C:/Users/harsh/Desktop/Study Material/Web Development/maiwae/background/maiwaesetcomp.csv")
 # df = pd.read_csv("maiwaesetcomp.csv")
-df = pd.read_csv("https://github.com/harshme93/maiwae/blob/master/background/maiwaesetcomp.csv")
+df = pd.read_csv("https://raw.githubusercontent.com/harshme93/maiwae/master/background/maiwaesetcomp.csv?token=GHSAT0AAAAAABVJWXFYQR6SERGHVILCJCV4YU5HM2A")
 # df['degree'] = df['degree'].str.lower()
 df['title'] = df['title'].str.lower()
 df['simpletags'] = df['simpletags'].str.lower()
