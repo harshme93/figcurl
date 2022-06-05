@@ -4,8 +4,8 @@ import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-df = pd.read_csv("C:/Users/harsh/Desktop/Study Material/Web Development/maiwae/background/maiwaesetcomp.csv")
-# df = pd.read_csv("maiwae/background/maiwaesetcomp.csv")
+# df = pd.read_csv("C:/Users/harsh/Desktop/Study Material/Web Development/maiwae/background/maiwaesetcomp.csv")
+df = pd.read_csv("maiwaesetcomp.csv")
 # df['degree'] = df['degree'].str.lower()
 df['title'] = df['title'].str.lower()
 df['simpletags'] = df['simpletags'].str.lower()
