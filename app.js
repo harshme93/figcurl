@@ -657,25 +657,25 @@ app.post("/futhome", function (req, res) {
     foundUser.courseCertB = dataToSendCert.split("|")[1];
     foundUser.courseCertC = dataToSendCert.split("|")[2];
     foundUser.courseCertD = dataToSendCert.split("|")[3];
-    foundUser.courseRecE = 0;
+    foundUser.courseCertE = 0;
   } else if((dataToSendCert.split("|")).length==3) {
     foundUser.courseCertA = dataToSendCert.split("|")[0];
     foundUser.courseCertB = dataToSendCert.split("|")[1];
     foundUser.courseCertC = dataToSendCert.split("|")[2]; 
-    foundUser.courseRecD = 0;
-    foundUser.courseRecE = 0;         
+    foundUser.courseCertD = 0;
+    foundUser.courseCertE = 0;         
   } else if((dataToSendCert.split("|")).length==2){
     foundUser.courseCertA = dataToSendCert.split("|")[0];
     foundUser.courseCertB = dataToSendCert.split("|")[1];
-    foundUser.courseRecC = 0; 
-    foundUser.courseRecD = 0;
-    foundUser.courseRecE = 0;
+    foundUser.courseCertC = 0; 
+    foundUser.courseCertD = 0;
+    foundUser.courseCertE = 0;
   } else if((dataToSendCert.split("|")).length==1){
     foundUser.courseCertA = dataToSendCert.split("|")[0];
-    foundUser.courseRecB = 0;
-    foundUser.courseRecC = 0; 
-    foundUser.courseRecD = 0;
-    foundUser.courseRecE = 0;
+    foundUser.courseCertB = 0;
+    foundUser.courseCertC = 0; 
+    foundUser.courseCertD = 0;
+    foundUser.courseCertE = 0;
   }
  
       });
@@ -698,25 +698,25 @@ app.post("/futhome", function (req, res) {
           foundUser.compRecB = dataToSendComp.split("|")[1];
           foundUser.compRecC = dataToSendComp.split("|")[2];
           foundUser.compRecD = dataToSendComp.split("|")[3];
-          foundUser.courseRecE = 0;
+          foundUser.compRecE = 0;
         } else if((dataToSendComp.split("|")).length==3) {
           foundUser.compRecA = dataToSendComp.split("|")[0];
           foundUser.compRecB = dataToSendComp.split("|")[1];
           foundUser.compRecC = dataToSendComp.split("|")[2];  
-          foundUser.courseRecD = 0;
-          foundUser.courseRecE = 0;        
+          foundUser.compRecD = 0;
+          foundUser.compRecE = 0;        
         } else if((dataToSendComp.split("|")).length==2){
           foundUser.compRecA = dataToSendComp.split("|")[0];
           foundUser.compRecB = dataToSendComp.split("|")[1];
-          foundUser.courseRecC = 0; 
-          foundUser.courseRecD = 0;
-          foundUser.courseRecE = 0;
+          foundUser.compRecC = 0; 
+          foundUser.compRecD = 0;
+          foundUser.compRecE = 0;
         } else if((dataToSendComp.split("|")).length==1){
           foundUser.compRecA = dataToSendComp.split("|")[0];
-          foundUser.courseRecB = 0;
-          foundUser.courseRecC = 0; 
-          foundUser.courseRecD = 0;
-          foundUser.courseRecE = 0;
+          foundUser.compRecB = 0;
+          foundUser.compRecC = 0; 
+          foundUser.compRecD = 0;
+          foundUser.compRecE = 0;
         }
        
         
