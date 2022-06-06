@@ -637,7 +637,7 @@ app.post("/futhome", function (req, res) {
           foundUser.courseRecD = 0;
           foundUser.courseRecE = 0;
         }
-        foundUser.save();
+        // foundUser.save();
       });
       
 
