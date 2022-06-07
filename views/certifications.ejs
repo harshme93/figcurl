@@ -48,7 +48,7 @@
 </section>
 
 <section id="CourseRecommend">
-  <% if((typeof courseCertA != 'undefined')||(courseCertA !=0)){ %>
+  <% if((typeof courseCertA != 'undefined')&&(courseCertA !=0)){ %>
   <div style='border-style:inset;'>
     <p>
     <h4 style='color:#f4f9f4'>recommendations here for <%=futProfile %></h4>
@@ -65,7 +65,7 @@
         </form>
       </div>
     </div>
-    <% if((courseCertB != 'undefined')||(courseCertB !=0)){ %>
+    <% if((courseCertB != 'undefined')&&(courseCertB !=0)){ %>
     <div class="row opt-total">
       <div class="col-lg-6 opt-why">
         <p> <%=courseCertB%> </p>
@@ -78,7 +78,7 @@
       </div>
     </div>
 <% } %>
-<% if((courseCertC != 'undefined')||(courseCertC !=0)){ %>
+<% if((courseCertC != 'undefined')&&(courseCertC !=0)){ %>
     <div class="row opt-total">
       <div class="col-lg-6 opt-why">
         <p> <%=courseCertC%> </p>
@@ -91,7 +91,7 @@
       </div>
     </div>
 <% } %>
-<% if((courseCertD != 'undefined')||(courseCertD !=0)){ %>
+<% if((courseCertD != 'undefined')&&(courseCertD !=0)){ %>
     <div class="row opt-total">
       <div class="col-lg-6 opt-why">
         <p> <%=courseCertD%> </p>
@@ -104,7 +104,7 @@
       </div>
     </div>
 <% } %>
-<% if((courseCertE != 'undefined')||(courseCertE !=0)){ %>
+<% if((courseCertE != 'undefined')&&(courseCertE !=0)){ %>
     <div class="row opt-total">
       <div class="col-lg-6 opt-why">
         <p> <%=courseCertE%> </p>
