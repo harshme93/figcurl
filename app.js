@@ -1028,6 +1028,40 @@ app.post("/MenteeRemove", function (req, res) {
   });
 });
 
+app.post("/RemoveSelected", function(req,res){
+  User.findById(req.user.id,function(err, foundUser){
+  if(!err){
+    if(req.body.RemoveSelected==1){
+      foundUser.futComp=0;
+      
+      foundUser.save();
+      res.redirect("home");
+    }else if(req.body.RemoveSelected==2)  
+    {foundUser.futExam=0;
+      
+      foundUser.save();
+      res.redirect("home"); }
+    else if(req.body.RemoveSelected==3)  
+    {foundUser.futCerti=0;
+      
+      foundUser.save();
+      res.redirect("home");}
+    else if(req.body.RemoveSelected==4)  
+    {foundUser.futMajor=0; 
+    foundUser.save();
+    res.redirect("home"); }
+    else if(req.body.RemoveSelected==5)  
+    {foundUser.futFellow=0;
+    foundUser.save();
+    res.redirect("home"); }
+  
+  }else{
+    console.log(err);
+  }
+});
+});
+
+
 app.post("/MessageSent", function (req, res) {
   var MentId = req.body.mentorId.split(" ").join("");
   User.findById(req.user.id, function (err, foundUser) {

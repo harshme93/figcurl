@@ -309,7 +309,19 @@
               <button class="btn btn-lg optbut" type="submit" id="compet">Competitions</button>
 
             </form>
-            <%= futComp %>
+            
+          <% if ((typeof futComp !='undefined')&&(futComp !=0)){  %>
+            <div class="row"> 
+            <div class="col"> <%=futComp%> </div> 
+            <div class="class">
+            <form action="/RemoveSelected" method="post">
+            <input type="hidden" name="RemoveSelected" value = 1 >
+            <button class="btn btn-danger">-</button> 
+            </form> 
+            </div> 
+            </div>
+               <% } %> 
+            
           </div>
         </div>
       </div>
@@ -327,7 +339,18 @@
             </form>
             <%=compName%>
               <%=compScore%> <br>
-                <%= futExam %>
+               
+                <% if ((typeof futExam !='undefined')&&(futExam !=0)){  %>              
+ <div class="row"> 
+            <div class="col"> <%=futExam%> </div> 
+            <div class="class">
+            <form action="/RemoveSelected" method="post">
+            <input type="hidden" name="RemoveSelected" value = 2 >
+            <button class="btn btn-danger">-</button> 
+            </form> 
+            </div> 
+            </div>
+<% } %>
 
           </div>
         </div>
@@ -341,7 +364,17 @@
             <form action="/certifications" method="post">
               <button class="btn btn-lg  optbut" type="submit" id="certifi">Certifications</button>
             </form>
-            <%= futCerti %>
+           <% if ((typeof futCerti !='undefined')&&(futCerti !=0)){  %>             
+            <div class="row"> 
+            <div class="col"> <%= futCerti %> </div> 
+            <div class="class">
+            <form action="/RemoveSelected" method="post">
+            <input type="hidden" name="RemoveSelected" value = 3 >
+            <button class="btn btn-danger">-</button> 
+            </form> 
+            </div> 
+            </div>
+<% }  %>
           </div>
         </div>
       </div>
@@ -354,7 +387,17 @@
               <button class="btn btn-lg  optbut" type="submit" id="course">Courses</button>
             </form>
             <%= futDeg %> <br>
-              <%= futMajor %>
+            <% if ((typeof futMajor !='undefined')&&(futMajor !=0)){  %>               
+              <div class="row"> 
+            <div class="col"> <%=futMajor%> </div> 
+            <div class="class">
+            <form action="/RemoveSelected" method="post">
+            <input type="hidden" name="RemoveSelected" value = 4 >
+            <button class="btn btn-danger">-</button> 
+            </form> 
+            </div> 
+            </div>
+<% } %>
           </div>
         </div>
       </div>
@@ -384,7 +427,17 @@
             <form class="" action="/scholarship" method="post">
               <button class="btn btn-lg  optbut" id="scholar" type="submit">Fellowships</button>
             </form>
-            <%= futFellow %>
+           <% if ((typeof futFellow !='undefined')&&(futFellow !=0)){  %> 
+            <div class="row"> 
+            <div class="col"> <%=futFellow%> </div> 
+            <div class="class">
+            <form action="/RemoveSelected" method="post">
+            <input type="hidden" name="RemoveSelected" value = 5 >
+            <button class="btn btn-danger">-</button> 
+            </form> 
+            </div> 
+            </div>
+<% }  %>
 
           </div>
         </div>
