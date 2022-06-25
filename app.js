@@ -482,7 +482,12 @@ app.post("/future", function (req, res) {
             filteredFuture.push(foundCert);
           }
         });
-        res.render("future", {
+        var AllSuggest = [];
+        foundCerts.forEach(element => {
+         AllSuggest.push(element.name);
+             });
+const CourseSuggest = AllSuggest.filter((x, i, a) => a.indexOf(x) == i);
+        res.render("future", {CourseSuggest:CourseSuggest,
           certNames: filteredFuture,Notifis: foundUser.Noti, NotifiLen: foundUser.Noti.length
         });
       }
