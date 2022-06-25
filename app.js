@@ -376,9 +376,9 @@ app.post("/courses", function (req, res) {
           AllSuggest.push(element.degMjr);
               });
               const CourseSuggest = AllSuggest.filter((x, i, a) => a.indexOf(x) == i);
-           res.render("courses", { CourseSuggest:CourseSuggest,certNames: filteredCourse,Notifis: foundUser.Noti, NotifiLen: foundUser.Noti.length,futProfile: foundUser.futProfile,certNames: foundCerts, courseRecA: foundUser.courseRecA,
+           res.render("courses", { CourseSuggest:CourseSuggest, certNames: foundCerts, courseRecA: foundUser.courseRecA,
             courseRecB: foundUser.courseRecB, courseRecC: foundUser.courseRecC, courseRecD: foundUser.courseRecD,
-            courseRecE: foundUser.courseRecE });
+            courseRecE: foundUser.courseRecE,certNames: filteredCourse,Notifis: foundUser.Noti, NotifiLen: foundUser.Noti.length,futProfile: foundUser.futProfile });
           }
         });
       }
